@@ -1,0 +1,4 @@
+# Production PostgreSQL runtime dependency.
+psycopg[binary]>=3.3,<4
+# Async WebSocket transport for Dhan V2 live market feed.
+websockets>=15,<17

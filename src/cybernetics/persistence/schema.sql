@@ -1,0 +1,1 @@
+-- Compatibility pointer only. UNIQUE INDEX ux_orders_client_order_key is defined in sql/schema.sql.

@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cybernetics-trading-engine"
+version = "1.0.0-rc1"
+description = "Cybernetics Trading Engine release-candidate runtime"
+requires-python = ">=3.11"
+dependencies = ["psycopg[binary]>=3.3,<4", "websockets>=15,<17"]
+
+[project.scripts]
+cybernetics-engine = "cybernetics.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["cybernetics*"]
+
+[tool.setuptools.package-data]
+"cybernetics.db" = ["schema.sql"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

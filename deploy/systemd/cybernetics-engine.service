@@ -1,0 +1,23 @@
+[Unit]
+Description=Cybernetics Trading Engine (staging-safe)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=cybernetics
+Group=cybernetics
+WorkingDirectory=/opt/cybernetics-engine/current
+EnvironmentFile=/etc/cybernetics-engine/cybernetics-engine.env
+ExecStart=/opt/cybernetics-engine/venv/bin/cybernetics-engine
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/cybernetics-engine/logs /opt/cybernetics-engine/backups /opt/cybernetics-engine/staging /opt/cybernetics-engine/secrets
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
